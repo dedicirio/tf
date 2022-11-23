@@ -1,3 +1,10 @@
+
+/**
+ * Escreva uma descrição da classe Main aqui.
+ * 
+ * @author (Joao Aiolfi, Gabriel Abreu, André cirio) 
+ * @version (22/11/2022)
+ */
 import java.util.Scanner;
 
 /**
