@@ -2,7 +2,7 @@
 /**
  * Escreva uma descrição da classe Main aqui.
  * 
- * @author (Joao Aiolfi, Gabriel Abreu, André cirio) 
+ * @author (Joao Aiolfi, Gabriel Abreu, André Cirio) 
  * @version (22/11/2022)
  */
 import java.util.Random;
@@ -10,14 +10,11 @@ import java.util.Random;
 
 class Sudoku {
 
-    /**
-     * 
-     */
     private int[][] tabuleiro = new int[9][9];
     private int[][] inicial;
 
     /**
-     * 
+     * método que armazena as matrizes
      */
     public Sudoku() {
         int[][] exemplo1 = {            
@@ -70,6 +67,9 @@ class Sudoku {
         preparar();
     }
 
+    /**
+     * metodo que copia a matriz inicial
+     */
     private void copiar(int[][] inicial, int[][] tabuleiro) {
         for (int i = 0; i < inicial.length; i++) {
             for (int j = 0; j < inicial[i].length; j++) {
@@ -79,7 +79,8 @@ class Sudoku {
     }
     
     /**
-     * 
+     * metodo que verifica se a matriz é valida , obtendo a soma de 45 na vertical, horizontal
+     * e dentro do quadrado
      */
     public void verificar() {
         for (int i = 0; i < tabuleiro.length; i++) {
@@ -101,7 +102,7 @@ class Sudoku {
     }
 
     /**
-     * 
+     * metodo utilizado para criação de "espaços vazios" no tabuleiro
      */
     public void preparar() {
         Random gerador = new Random();
@@ -114,7 +115,8 @@ class Sudoku {
     }
 
     /**
-     * 
+     * metodo que possibilita a escolha do local de cada jogada, verificando se a se a posição
+     * não esta ocuupada 
      */
     public void jogar(char coluna, char linha, char valor) {
         int i;
@@ -134,7 +136,7 @@ class Sudoku {
     }
 
     /**
-     * 
+     * metodo utilizado para escolher a linha da jogada, verificando se a escolha é válida
      */
     private int converterParaLinha(char linha) {
         int i;
@@ -173,7 +175,7 @@ class Sudoku {
     }
 
     /**
-     * 
+     * metodo utilizado para escolher a coluna da jogada, verificando se a escolha é válida
      */
     private int converterParaColuna(char coluna) {
         int j;
@@ -221,7 +223,8 @@ class Sudoku {
     }
 
     /**
-     * 
+     * metodo utilizado para escolher o valor numérico da jogada, verificando se a escolha
+     * é válida 
      */
     private int converterParaValorNumerico(char valor) {
         int v;
@@ -258,7 +261,12 @@ class Sudoku {
         }
         return v;
     }
-
+    
+    /**
+     * metodo utilizado para verificar se o tabuleiro esta completo. 
+     * Através da leitura da matriz, o metodo verifica se existe algum zero (vazio) na matriz,
+     * caso existir o jogo continua, caso contrario ele acaba.
+     */
     public boolean fimDeJogo() {
         for (int i = 0; i < tabuleiro.length; i++) {
             for (int j = 0; j < tabuleiro.length; j++) {
