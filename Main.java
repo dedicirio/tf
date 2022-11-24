@@ -1,10 +1,3 @@
-
-/**
- * Escreva uma descrição da classe Main aqui.
- * 
- * @author (Joao Aiolfi, Gabriel Abreu, André cirio) 
- * @version (22/11/2022)
- */
 import java.util.Scanner;
 
 /**
@@ -23,17 +16,24 @@ class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         Sudoku jogo = new Sudoku();
-
+        
         char coluna;
         char linha;
         char valor;
+        int tipoJogo = 0;
+        
+        System.out.println("Informe qual tabuleiro voce quer jogar\n\t  Jogo:1,2,3 ou aleatorio (4)");
+        tipoJogo = in.nextInt();
+        jogo.escolher(tipoJogo);
+      
+
 
         while ( !jogo.fimDeJogo() ) {
             System.out.println("\t         Sudoku!");
             System.out.println("\t        =========");
-
+            
             System.out.println( jogo.toString() );
-
+            
             System.out.println("Informe a coluna");
             coluna = in.next().charAt(0);
             System.out.println("Informe a linha");

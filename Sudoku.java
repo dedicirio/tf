@@ -1,23 +1,24 @@
-
-/**
- * Escreva uma descrição da classe Main aqui.
- * 
- * @author (Joao Aiolfi, Gabriel Abreu, André Cirio) 
- * @version (22/11/2022)
- */
 import java.util.Random;
 
-
+/**
+ * @author marco.mangan@pucrs.br
+ */
 class Sudoku {
 
+    /**
+     * 
+     */
     private int[][] tabuleiro = new int[9][9];
     private int[][] inicial;
-
+    private int[][] exemplo1;
+    private int[][] exemplo2;
+    private int[][] exemplo3;
+    
     /**
      * método que armazena as matrizes
      */
     public Sudoku() {
-        int[][] exemplo1 = {            
+        int[][] exemplo1 = {
                 {6, 4, 1,  5, 8, 7,  3, 9, 2},
                 {5, 3, 7,  1, 2, 9,  6, 8, 4},
                 {2, 8, 9,  3, 6, 4,  1, 5, 7},
@@ -29,9 +30,9 @@ class Sudoku {
                 {9, 6, 8,  2, 7, 1,  4, 3, 5},
                 {3, 1, 2,  6, 4, 5,  9, 7, 8},
                 {7, 5, 4,  8, 9, 3,  2, 6, 1}
-
             };
-            int[][] exemplo2 = {
+        this.exemplo1 = exemplo1;
+        int[][] exemplo2 = {
                 {5, 3, 4,  6, 7, 8,  9, 1, 2},
                 {6, 7, 2,  1, 9, 5,  3, 4, 8},
                 {1, 9, 8,  3, 4, 2,  5, 6, 7},
@@ -44,29 +45,62 @@ class Sudoku {
                 {2, 8, 7,  4, 1, 9,  6, 3, 5},
                 {3, 4, 5,  2, 8, 6,  1, 7, 9}
             };
-            int[][] exemplo3 = {
-                {9, 4, 5,  2, 7, 1,  8, 3, 6},
-                {8, 1, 6,  3, 9, 5,  4, 2, 7},
-                {7, 3, 2,  6, 8, 4,  5, 1, 7},
+        this.exemplo2 = exemplo2;
+        int[][] exemplo3 = {
+                {5, 6, 8,  2, 4, 7,  9, 1, 3},
+                {3, 4, 2,  1, 9, 5,  6, 8, 7},
+                {1, 9, 7,  8, 6, 3,  2, 5, 4},
 
-                {2, 5, 8,  4, 6, 7,  3, 9, 1},
-                {6, 9, 4,  1, 3, 8,  7, 5, 2},
-                {3, 7, 1,  5, 2, 9,  6, 4, 8},
+                {6, 8, 5,  3, 1, 2,  4, 7, 9},
+                {7, 3, 4,  9, 5, 8,  1, 6, 2},
+                {2, 1, 9,  6, 7, 4,  5, 3, 8},
 
-                {4, 6, 7,  9, 5, 2,  1, 8, 3},
-                {1, 2, 3,  8, 4, 6,  9, 7, 5},
-                {5, 8, 9,  7, 1, 3,  2, 6, 4}
+                {9, 2, 6,  7, 8, 1,  3, 4, 5},
+                {4, 7, 3,  5, 2, 6,  8, 9, 1},
+                {8, 5, 1,  4, 3, 9,  7, 2, 6}
             };
-            
-
-        inicial = exemplo1;
+        this.exemplo3 = exemplo3;
         
+        
+        inicial = exemplo1;
+       
         copiar(inicial, tabuleiro);
         
         verificar();
         preparar();
+        
     }
-
+    //Escolher o jogo
+    public void escolher( int i  )
+    {
+        switch(i)
+            {
+                case 1:
+                inicial = exemplo1; 
+                copiar(inicial, tabuleiro);
+                break;
+                
+                case 2:
+                inicial = exemplo2; 
+                copiar(inicial, tabuleiro);
+                break;
+                
+                case 3:
+                inicial = exemplo3;
+                copiar(inicial, tabuleiro);
+                break;
+                
+                case 4:
+                Random numeroRandom = new Random();
+                escolher(numeroRandom.nextInt(3));
+                break;
+                
+            }
+        verificar();
+        preparar();
+    }
+    
+    
     /**
      * metodo que copia a matriz inicial
      */
@@ -114,7 +148,7 @@ class Sudoku {
         }
     }
 
-    /**
+     /**
      * metodo que possibilita a escolha do local de cada jogada, verificando se a se a posição
      * não esta ocuupada 
      */
@@ -135,9 +169,9 @@ class Sudoku {
 
     }
 
-    /**
-     * metodo utilizado para escolher a linha da jogada, verificando se a escolha é válida
-     */
+   /**
+    * metodo utilizado para escolher a linha da jogada, verificando se a escolha é válida
+    */
     private int converterParaLinha(char linha) {
         int i;
         switch(linha) {
@@ -261,8 +295,8 @@ class Sudoku {
         }
         return v;
     }
-    
-    /**
+
+     /**
      * metodo utilizado para verificar se o tabuleiro esta completo. 
      * Através da leitura da matriz, o metodo verifica se existe algum zero (vazio) na matriz,
      * caso existir o jogo continua, caso contrario ele acaba.
