@@ -1,7 +1,14 @@
+
 import java.util.Random;
 
 /**
- * @author marco.mangan@pucrs.br
+ * Classe responsavel pelo funcionamento do jogo, visando as regras.
+ * 
+ * @author (Joao Aiolfi)
+ * @author(Gabriel Abreu)
+ * @author(Andre Cirio)
+ * 
+ * @version (22/11/2022)
  */
 class Sudoku {
 
@@ -67,7 +74,10 @@ class Sudoku {
         preparar();
 
     }
-    //Escolher o jogo
+    
+    /**
+     * método utilizado para escolher a matriz que será usada pelo usuário. 
+     */
     public void escolher( int i  )
     {
         switch(i)
@@ -96,7 +106,10 @@ class Sudoku {
         verificar();
         preparar();
     }
-    //metodo para completar jogada
+    
+    /**
+     * método utilizado para completar a jogada para o usuário.
+     */
     public static void completarJogada(int[][]tabuleiro, int[][] inicial,int converterParaColuna, int converterParaValorNumerico, int converterParaLinha,boolean verificaInicial){
         String y = new String();
         String n = new String();
@@ -106,8 +119,10 @@ class Sudoku {
         }
 
     }
-
-    //metodo que verifica a jogada de acordo com o matriz inicial
+    
+    /**
+     * método que verifica a jogada de acordo com o matriz inicial
+     */
     public static boolean verificaInicial (int [][] inicial, int converterParaColuna, int converterParaValorNumerico, int converterParaLinha ){
         if(converterParaValorNumerico == (inicial[converterParaColuna][converterParaLinha])){
             return true;
@@ -335,7 +350,7 @@ class Sudoku {
     }
 
     /**
-     * 
+     * metodo utilizado para formar o tabuleiro do jogo.
      */
     public String toString() {
         String s = "\t   A B C  D E F  G H I\n\n";

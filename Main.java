@@ -1,17 +1,16 @@
 import java.util.Scanner;
-
 /**
- * @author marco.mangan@pucrs.br
+ * Classe quer armazena o método Main, utilizado para colocar o jogo em uso.
+ * 
+ * @author (Joao Aiolfi)
+ * @author(Gabriel Abreu)
+ * @author(Andre Cirio)
+ * 
+ * @version (22/11/2022)
  */
 class Main {
-
     /**
-     * 
-     */
-    private Main() {}
-
-    /**
-     * 
+     * metodo utilizado para colocar o jogo em prática.
      */
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -27,7 +26,7 @@ class Main {
         String y = new String();
         String n = new String();
         
-        System.out.println("Informe qual tabuleiro voce quer jogar\n\t  Jogo:1,2 ou 3:");
+        System.out.println("Informe qual tabuleiro voce quer jogar\n\t  Jogo:1,2,3 ou aleatorio (4)");
         tipoJogo = in.nextInt();
         jogo.escolher(tipoJogo);
       
@@ -39,10 +38,19 @@ class Main {
             
             System.out.println( jogo.toString() );
               
-            //System.out.printf("Quer refazer ultima jogada? (coluna:%d)\n(linha:%d)y\n",colunaAtual, linhaAtual);
-            //escolha = in.nextLine();
+            System.out.printf("Quer refazer ultima jogada? (coluna:%d)\n(linha:%d)y\n",colunaAtual, linhaAtual);
+            escolha = in.nextLine();
             
-          
+            if(escolha.equals(y))
+            {
+            
+            }
+            else if(escolha.equals(n))
+            {
+            
+            
+            
+            }
               
 
     
@@ -54,9 +62,7 @@ class Main {
             linhaAtual = linha;
             System.out.println("Informe o valor");
             valor = in.next().charAt(0);   
-            
-            
-            
+           
             
             
             
