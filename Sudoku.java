@@ -161,6 +161,7 @@ class Sudoku {
         j = converterParaColuna(coluna);
         v = converterParaValorNumerico(valor);
         
+        
         if (tabuleiro[i - 1][j - 1] == 0) {
             tabuleiro[i - 1][j - 1] = v;
         } else {
@@ -338,4 +339,5 @@ class Sudoku {
         }
         return s;
     }
+    
 }
