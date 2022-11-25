@@ -1,14 +1,7 @@
-
 import java.util.Random;
 
 /**
- * Escreva uma descrição da classe Main aqui.
- * 
- * @author (Joao Aiolfi)
- * @author(Gabriel Abreu)
- * @author(Andre Cirio)
- * 
- * @version (22/11/2022)
+ * @author marco.mangan@pucrs.br
  */
 class Sudoku {
 
@@ -20,7 +13,7 @@ class Sudoku {
     private int[][] exemplo1;
     private int[][] exemplo2;
     private int[][] exemplo3;
-    
+
     /**
      * método que armazena as matrizes
      */
@@ -67,47 +60,63 @@ class Sudoku {
                 {8, 5, 1,  4, 3, 9,  7, 2, 6}
             };
         this.exemplo3 = exemplo3;
-        
-        
+
         inicial = exemplo1;
-       
         copiar(inicial, tabuleiro);
-        
         verificar();
         preparar();
-        
+
     }
     //Escolher o jogo
     public void escolher( int i  )
     {
         switch(i)
-            {
-                case 1:
+        {
+            case 1:
                 inicial = exemplo1; 
                 copiar(inicial, tabuleiro);
                 break;
-                
-                case 2:
+
+            case 2:
                 inicial = exemplo2; 
                 copiar(inicial, tabuleiro);
                 break;
-                
-                case 3:
+
+            case 3:
                 inicial = exemplo3;
                 copiar(inicial, tabuleiro);
                 break;
-                
-                case 4:
+
+            case 4:
                 Random numeroRandom = new Random();
                 escolher(numeroRandom.nextInt(3));
                 break;
-                
-            }
+
+        }
         verificar();
         preparar();
     }
-    
-    
+    //metodo para completar jogada
+    public static void completarJogada(int[][]tabuleiro, int[][] inicial,int converterParaColuna, int converterParaValorNumerico, int converterParaLinha,boolean verificaInicial){
+        String y = new String();
+        String n = new String();
+        if(verificaInicial == false){
+            System.out.println("Deseja completar a jogada? y/n");
+
+        }
+
+    }
+
+    //metodo que verifica a jogada de acordo com o matriz inicial
+    public static boolean verificaInicial (int [][] inicial, int converterParaColuna, int converterParaValorNumerico, int converterParaLinha ){
+        if(converterParaValorNumerico == (inicial[converterParaColuna][converterParaLinha])){
+            return true;
+        } else{
+            return false;
+        }
+
+    }
+
     /**
      * metodo que copia a matriz inicial
      */
@@ -118,7 +127,7 @@ class Sudoku {
             }
         }
     }
-    
+
     /**
      * metodo que verifica se a matriz é valida , obtendo a soma de 45 na vertical, horizontal
      * e dentro do quadrado
@@ -147,7 +156,7 @@ class Sudoku {
      */
     public void preparar() {
         Random gerador = new Random();
-        
+
         for (int c = 0; c < 20; c++) {
             int i = gerador.nextInt(9);
             int j = gerador.nextInt(9);
@@ -155,7 +164,7 @@ class Sudoku {
         }
     }
 
-     /**
+    /**
      * metodo que possibilita a escolha do local de cada jogada, verificando se a se a posição
      * não esta ocuupada 
      */
@@ -167,18 +176,23 @@ class Sudoku {
         i = converterParaLinha(linha);
         j = converterParaColuna(coluna);
         v = converterParaValorNumerico(valor);
-        
+
         if (tabuleiro[i - 1][j - 1] == 0) {
-            tabuleiro[i - 1][j - 1] = v;
+            if(v == (inicial[i-1][j-1])){
+                tabuleiro[i - 1][j - 1] = v;
+            } else{
+                throw new IllegalArgumentException("Valor incorreto!");
+            }
+
         } else {
             throw new IllegalArgumentException("Posiçao ja ocupada!");
         }
 
     }
 
-   /**
-    * metodo utilizado para escolher a linha da jogada, verificando se a escolha é válida
-    */
+    /**
+     * metodo utilizado para escolher a linha da jogada, verificando se a escolha é válida
+     */
     private int converterParaLinha(char linha) {
         int i;
         switch(linha) {
@@ -303,7 +317,7 @@ class Sudoku {
         return v;
     }
 
-     /**
+    /**
      * metodo utilizado para verificar se o tabuleiro esta completo. 
      * Através da leitura da matriz, o metodo verifica se existe algum zero (vazio) na matriz,
      * caso existir o jogo continua, caso contrario ele acaba.
@@ -345,5 +359,5 @@ class Sudoku {
         }
         return s;
     }
-    
+
 }
