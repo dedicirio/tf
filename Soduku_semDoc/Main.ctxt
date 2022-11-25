@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Main
+comment0.text=\r\n\ Classe\ quer\ armazena\ o\ m\u00E9todo\ Main,\ utilizado\ para\ colocar\ o\ jogo\ em\ uso.\r\n\ \r\n\ @author\ (Joao\ Aiolfi)\r\n\ @author(Gabriel\ Abreu)\r\n\ @author(Andre\ Cirio)\r\n\ \r\n\ @version\ (22/11/2022)\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ metodo\ utilizado\ para\ colocar\ o\ jogo\ em\ pr\u00E1tica.\r\n
+numComments=2
