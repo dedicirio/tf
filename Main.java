@@ -1,15 +1,6 @@
 import java.util.Scanner;
 
-/**
- * @author marco.mangan@pucrs.br
- */
 class Main {
-
-    /**
-     * 
-     */
-    private Main() {}
-
     /**
      * 
      */
@@ -21,6 +12,11 @@ class Main {
         char linha;
         char valor;
         int tipoJogo = 0;
+        int colunaAtual= 0;
+        int linhaAtual= 0;
+        String escolha = new String();
+        String y = new String();
+        String n = new String();
         
         System.out.println("Informe qual tabuleiro voce quer jogar\n\t  Jogo:1,2,3 ou aleatorio (4)");
         tipoJogo = in.nextInt();
@@ -33,14 +29,36 @@ class Main {
             System.out.println("\t        =========");
             
             System.out.println( jogo.toString() );
+              
+            System.out.printf("Quer refazer ultima jogada? (coluna:%d)\n(linha:%d)y\n",colunaAtual, linhaAtual);
+            escolha = in.nextLine();
             
+            if(escolha.equals(y))
+            {
+            
+            }
+            else if(escolha.equals(n))
+            {
+            
+            
+            
+            }
+              
+
+    
             System.out.println("Informe a coluna");
             coluna = in.next().charAt(0);
+            colunaAtual = coluna;
             System.out.println("Informe a linha");
-            linha = in.next().charAt(0);        
+            linha = in.next().charAt(0);   
+            linhaAtual = linha;
             System.out.println("Informe o valor");
-            valor = in.next().charAt(0);        
-
+            valor = in.next().charAt(0);   
+           
+            
+            
+            
+            
             System.out.println("COLUNA = " + coluna);
             System.out.println(" LINHA = " + linha);
             System.out.println(" VALOR = " + valor);
@@ -59,7 +77,7 @@ class Main {
         System.out.println("\f\t         Sudoku!");
         System.out.println("\t        =========");
         System.out.println( jogo.toString() );
-        System.out.println("** FIM **");
+        System.out.println("* FIM *");
 
     }
 }

@@ -1,7 +1,14 @@
+
 import java.util.Random;
 
 /**
- * @author marco.mangan@pucrs.br
+ * Escreva uma descrição da classe Main aqui.
+ * 
+ * @author (Joao Aiolfi)
+ * @author(Gabriel Abreu)
+ * @author(Andre Cirio)
+ * 
+ * @version (22/11/2022)
  */
 class Sudoku {
 
@@ -160,7 +167,6 @@ class Sudoku {
         i = converterParaLinha(linha);
         j = converterParaColuna(coluna);
         v = converterParaValorNumerico(valor);
-        
         
         if (tabuleiro[i - 1][j - 1] == 0) {
             tabuleiro[i - 1][j - 1] = v;
